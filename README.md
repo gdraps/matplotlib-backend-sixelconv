@@ -9,6 +9,9 @@ that uses sixelconv (from python-sixel) instead imagemagick (which is a more com
 
 You will need a terminal that has support for the SIXEL graphics format and [python-sixel](https://pypi.org/project/sixel) installed. 
 
+To install the python-sixel dependency, run:
+- `pip3 install --user sixel`
+
 To install clone this repo and run
  - `$ cd matplotlib-backend-sixelconv && pip install . `
 
