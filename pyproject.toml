@@ -1,5 +1,5 @@
 [project]
-name = "matplotlib-backend-sixel"
+name = "matplotlib-backend-sixelconv"
 version = "1.0.0"
 description = "show matplotlib plots directly in your sixel-enabled terminal"
 readme = "README.md"
@@ -12,8 +12,7 @@ classifiers = [
 dependencies = [ "matplotlib" ]
 
 [project.urls]
-"Homepage" = "https://github.com/ctorney/matplotlib-backend-sixel"
-"Bug Tracker" = "https://github.com/ctorney/matplotlib-backend-sixel/issues"
+"Homepage" = "https://github.com/gdraps/matplotlib-backend-sixelconv"
 
 [build-system]
 requires = [ "setuptools>=61.0" ]
