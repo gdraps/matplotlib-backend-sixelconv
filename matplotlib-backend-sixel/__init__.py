@@ -2,6 +2,7 @@
 
 import sys
 
+import tempfile
 from subprocess import Popen, PIPE
 import warnings
 
@@ -20,13 +21,13 @@ class FigureManagerSixel(FigureManagerBase):
     def show(self):
         try:
             print('\n   ', end='')
-            p = Popen(["magick", "-bordercolor", "gray", "png:-", "-border", "2", "sixel:-"], stdin=PIPE)
-            self.canvas.figure.savefig(p.stdin, bbox_inches="tight", format="png")
-            p.stdin.close()
-            p.wait()
+            with tempfile.NamedTemporaryFile() as fp:
+                self.canvas.figure.savefig(fp.name, bbox_inches="tight", format="png")
+                p = Popen(["sixelconv", fp.name])
+                p.wait()
         except FileNotFoundError:
             warnings.warn(
-                "Unable to convert plot to sixel format: Imagemagick not found."
+                "Unable to convert plot to sixel format: sixelconv not found."
             )
 
 
